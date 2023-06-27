@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-frontend-deployment
+spec:
+  # Select the Pods that make up this Deployment.
+  selector:
+    matchLabels:
+      pod-label: my-frontend-pod
+  # Define the Pod.
+  template:
+    metadata:
+      labels:
+        pod-label: my-frontend-pod
+    spec:
+      containers:
+      - name: my-frontend-container
+        image: us-docker.pkg.dev/PROJECT_ID/simple-http-app/frontend:0.0.3
+        ports:
+        - containerPort: 8080
+  # Run 1 instance of the Pod.
+  replicas: 1
