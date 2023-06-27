@@ -1,4 +1,4 @@
-# Simple HTTP App
+# Simple HTTP app
 
 This is a simple demo app consisting of a frontend service and a backend service — both written in Golang.
 This app is primarily used for Kubernetes-related testing.
