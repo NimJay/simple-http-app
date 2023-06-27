@@ -18,5 +18,8 @@ spec:
         image: us-docker.pkg.dev/PROJECT_ID/simple-http-app/frontend:0.0.3
         ports:
         - containerPort: 8080
+        env:
+        - name: BACKEND_URL
+          value: "http://my-backend-service"
   # Run 1 instance of the Pod.
   replicas: 1

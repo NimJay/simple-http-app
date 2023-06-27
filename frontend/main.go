@@ -41,7 +41,7 @@ func serveHomePage(w http.ResponseWriter, r *http.Request) {
 	// Make GET request to backend.
 	backendUrl := os.Getenv("BACKEND_URL")
 	if backendUrl == "" {
-		backendUrl = "http://backend:80"
+		backendUrl = "http://my-backend-service:80"
 	}
 	backendResponse, err := http.Get(backendUrl)
 	if err != nil {
