@@ -55,8 +55,9 @@ func serveHomePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Parse and output response body from backend.
-	var backendResponseParsed backendHomeResponse
-	json.Unmarshal([]byte(backendResponseBodyRaw), &backendResponse)
-	fmt.Fprintf(w, "Response from backend: hostname: %s\n", backendResponseParsed.hostname)
-	fmt.Fprintf(w, "Response from backend: randomNum: %d\n", backendResponseParsed.randomNum)
+	var unmarshalledBody backendHomeResponse
+	json.Unmarshal([]byte(backendResponseBodyRaw), &unmarshalledBody)
+	fmt.Fprintf(w, "Response from backend: hostname: %s\n", unmarshalledBody.hostname)
+	fmt.Fprintf(w, "Response from backend: randomNum: %d\n", unmarshalledBody.randomNum)
+	fmt.Fprintf(w, "Response from backend: %s\n", backendResponseBodyRaw)
 }
