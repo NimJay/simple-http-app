@@ -11,8 +11,8 @@ import (
 
 // This should match the homeResponse struct from the backend service.
 type backendHomeResponse struct {
-	hostname  string
-	randomNum int
+	Hostname  string
+	RandomNum int
 }
 
 func main() {
@@ -57,7 +57,6 @@ func serveHomePage(w http.ResponseWriter, r *http.Request) {
 	// Parse and output response body from backend.
 	var unmarshalledBody backendHomeResponse
 	json.Unmarshal([]byte(backendResponseBodyRaw), &unmarshalledBody)
-	fmt.Fprintf(w, "Response from backend: hostname: %s\n", unmarshalledBody.hostname)
-	fmt.Fprintf(w, "Response from backend: randomNum: %d\n", unmarshalledBody.randomNum)
-	fmt.Fprintf(w, "Response from backend: %s\n", backendResponseBodyRaw)
+	fmt.Fprintf(w, "Response from backend: hostname: %s\n", unmarshalledBody.Hostname)
+	fmt.Fprintf(w, "Response from backend: randomNum: %d\n", unmarshalledBody.RandomNum)
 }
