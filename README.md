@@ -47,8 +47,8 @@ To build and push the images into a Google Cloud [Artifact Registry](https://clo
 
 Assuming you have already built the images locally (see `docker build` commands above), you can run them locally:
 ```bash
-docker run -p 8081:8080 -d us-docker.pkg.dev/nimjay-playground/simple-http-app/frontend:0.0.5
-docker run -p 8082:8080 -d us-docker.pkg.dev/nimjay-playground/simple-http-app/backend:0.0.5
+docker run -p 8081:8080 -d "us-docker.pkg.dev/${PROJECT_ID}/simple-http-app/frontend:0.0.5"
+docker run -p 8082:8080 -d "us-docker.pkg.dev/${PROJECT_ID}/simple-http-app/backend:0.0.5"
 ```
 
 You can then access the endpoints at [localhost:8081](http://localhost:8081) and [localhost:8082](http://localhost:8082).
@@ -56,7 +56,7 @@ You can then access the endpoints at [localhost:8081](http://localhost:8081) and
 If you have the backend running at some public IP address like `123.456.789`, you can use use:
 ```bash
 docker run -p 8081:8080 --env BACKEND_URL=http://123.456.789 \
-    -d us-docker.pkg.dev/nimjay-playground/simple-http-app/frontend:0.0.5
+    -d "us-docker.pkg.dev/${PROJECT_ID}/simple-http-app/frontend:0.0.5"
 ```
 
 ### Deploy app into Kubernetes cluster
