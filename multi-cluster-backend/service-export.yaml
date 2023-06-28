@@ -1,0 +1,8 @@
+# This ServiceExport exports the backend Service to all clusters in the Fleet.
+# In other words, it turns the backend Service into a multi-cluster service.
+# This ServiceExport is to be "kubectl apply"-ed to the cluster containing the backend Service.
+kind: ServiceExport
+apiVersion: net.gke.io/v1 # "ServiceExport" is a GKE (Google Kubernetes Engine) concept.
+metadata:
+ namespace: default
+ name: my-backend-service
